@@ -1,6 +1,10 @@
 # Zen Mac Style Dock
 
-A local Sine mod for Zen's bottom workspace icons, using a browser UI script.
+Smooth Apple Mac-style dock magnification for bottom workspace icons with icon highlighting.
+
+**Author:** akashdev99
+
+A Sine mod for Zen Browser, using a browser UI script.
 
 - Icons magnify continuously with pointer distance, up to 1.8× with a 6px lift.
 - Resting artwork is about 20% smaller: 12px emoji and 13px image icons on macOS.

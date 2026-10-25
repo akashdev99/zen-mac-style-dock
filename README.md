@@ -6,6 +6,14 @@ Smooth Apple Mac-style dock magnification for bottom workspace icons with icon h
 
 A Sine mod for Zen Browser, using a browser UI script.
 
+## Demo
+
+![Zen Mac Style Dock: smooth icon magnification and highlighting](assets/demo.gif)
+
+[Download the original recording](assets/demo.mov)
+
+## Features
+
 - Icons magnify continuously with pointer distance, up to 1.8× with a 6px lift.
 - Resting artwork is about 20% smaller: 12px emoji and 13px image icons on macOS.
 - Regular dock icons use 26px button slots with a 1px gap for tighter spacing.

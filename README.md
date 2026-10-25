@@ -21,6 +21,7 @@ A Sine mod for Zen Browser, using a browser UI script.
 - Geometry is cached and read before style updates to avoid repeated layout work.
 - Hover adds a bright light rim and a theme-colored halo around the artwork.
 - Click targets and workspace order stay stationary.
+- Clicking an icon keeps its hover magnification until the pointer moves away.
 - Workspace reordering retains Zen's native behavior.
 - Crowded bars keep Zen's dots and magnify only the revealed icon.
 - macOS Reduce Motion disables the effect.

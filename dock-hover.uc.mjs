@@ -6,7 +6,6 @@ let bar;
 let frame = 0;
 let lastTime = 0;
 let pointer;
-let pressed = false;
 let hoverRecorded = false;
 let geometry = [];
 let needsMeasure = true;
@@ -16,7 +15,7 @@ let resizeObserver;
 function status(phase) {
   try {
     IOUtils.writeJSON(PathUtils.join(PathUtils.profileDir, "chrome", "sine-mods", "zen-mac-style-dock", "status.json"), {
-      version: "1.3.2", phase, reducedMotion: motion.matches,
+      version: "1.3.3", phase, reducedMotion: motion.matches,
       buttons: bar?.querySelectorAll("toolbarbutton[zen-workspace-id]").length ?? 0,
       animatedIcons: originals.size,
     }).catch(error => console.warn("[Zen Mac Style Dock] Cannot write local status", error));
@@ -74,7 +73,7 @@ function leave() {
 
 function render(time) {
   frame = 0;
-  if (pressed || motion.matches || bar.hasAttribute("reorder-mode")) {
+  if (motion.matches || bar.hasAttribute("reorder-mode")) {
     stop();
     return;
   }
@@ -123,18 +122,9 @@ function render(time) {
 }
 
 function move(event) {
-  if (event.pointerType === "touch" || motion.matches || pressed) return;
+  if (event.pointerType === "touch" || motion.matches) return;
   pointer = { x: event.clientX, target: event.target };
   schedule();
-}
-
-function press() {
-  pressed = true;
-  stop();
-}
-
-function release() {
-  pressed = false;
 }
 
 function motionChanged() {
@@ -151,9 +141,6 @@ function init() {
   bar.addEventListener("pointerleave", leave);
   bar.addEventListener("pointerenter", invalidateGeometry);
   bar.addEventListener("scroll", invalidateGeometry);
-  bar.addEventListener("pointerdown", press);
-  window.addEventListener("pointerup", release, true);
-  window.addEventListener("pointercancel", release, true);
   window.addEventListener("blur", stop);
   window.addEventListener("resize", invalidateGeometry);
   window.addEventListener("ZenWorkspacesUIUpdate", invalidateGeometry);
@@ -169,9 +156,6 @@ function cleanup() {
   bar?.removeEventListener("pointerleave", leave);
   bar?.removeEventListener("pointerenter", invalidateGeometry);
   bar?.removeEventListener("scroll", invalidateGeometry);
-  bar?.removeEventListener("pointerdown", press);
-  window.removeEventListener("pointerup", release, true);
-  window.removeEventListener("pointercancel", release, true);
   window.removeEventListener("blur", stop);
   window.removeEventListener("resize", invalidateGeometry);
   window.removeEventListener("ZenWorkspacesUIUpdate", invalidateGeometry);

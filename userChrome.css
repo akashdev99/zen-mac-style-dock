@@ -20,6 +20,10 @@
   width: 13px !important;
 }
 
+#zen-workspaces-button:not([reorder-mode]) > toolbarbutton[zen-workspace-id]:active {
+  scale: 1 !important;
+}
+
 /* A bright light rim and layered halo follow the artwork. */
 #zen-workspaces-button:not([reorder-mode]) > toolbarbutton:hover > .zen-workspace-icon {
   filter:

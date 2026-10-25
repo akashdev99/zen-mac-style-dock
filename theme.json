@@ -2,7 +2,7 @@
   "id": "zen-mac-style-dock",
   "name": "Zen Mac Style Dock",
   "description": "Smooth Apple Mac-style dock magnification for bottom workspace icons with icon highlighting.",
-  "version": "1.3.2",
+  "version": "1.3.3",
   "author": "akashdev99",
   "style": { "chrome": "userChrome.css" },
   "scripts": {

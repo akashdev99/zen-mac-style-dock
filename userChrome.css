@@ -1,0 +1,29 @@
+#zen-workspaces-button:not([icons-overflow]) {
+  overflow: visible !important;
+}
+
+#zen-workspaces-button:not([icons-overflow]):not([reorder-mode]) {
+  gap: 1px !important;
+}
+#zen-workspaces-button:not([icons-overflow]):not([reorder-mode]) > toolbarbutton[zen-workspace-id] {
+  flex: 0 0 26px !important;
+  width: 26px !important;
+  min-width: 0 !important;
+  max-width: 26px !important;
+  margin-inline: 0 !important;
+}
+
+#zen-workspaces-button > toolbarbutton > .zen-workspace-icon:not([no-icon="true"]) {
+  font-size: 12px !important;
+}
+#zen-workspaces-button > toolbarbutton > img.zen-workspace-icon {
+  width: 13px !important;
+}
+
+/* A bright light rim and layered halo follow the artwork. */
+#zen-workspaces-button:not([reorder-mode]) > toolbarbutton:hover > .zen-workspace-icon {
+  filter:
+    drop-shadow(0 0 2px rgb(255 255 255 / 0.95))
+    drop-shadow(0 0 5px rgb(235 245 255 / 0.8))
+    drop-shadow(0 0 10px color-mix(in srgb, var(--zen-primary-color, #b9ccff) 40%, #dceaff)) !important;
+}
